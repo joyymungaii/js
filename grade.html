@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Grade</title>
+  </head>
+  <style >
+    form {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-80%, -70%);
+      background-color: #fff;
+      padding: 20px;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+
+    form input[type="number"] {
+      width: 90%;
+      padding: 10px;
+      margin-bottom: 20px;
+      border: 1px solid hsl(0, 0%, 80%);
+      outline-color: rgb(3, 68, 68);
+      border-radius: 5px;
+    }
+
+    form select {
+      width: 96%;
+      padding: 10px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      outline-color: rgb(11, 87, 87);
+      border-radius: 5px;
+    }
+
+    form button {
+      background-color: #377039fb;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+    }
+
+    form button:hover {
+      background-color: #155317c5;
+    }
+  </style>
+  <body>
+    <form id="submit">
+      <h2>Grade Calculator</h2>
+      <p>Enter Grade:</p>
+      <input type="number" id="score" required />
+      <button>GRADE</button>
+      <p id="grade"></p>
+    </form>
+
+    <script >
+      //GRADE CALCULATOR
+
+      function calcGrades(score) {
+        switch (score) {
+          case 90:
+          case 91:
+          case 92:
+          case 93:
+          case 94:
+          case 95:
+          case 96:
+          case 97:
+          case 98:
+          case 99:
+          case 100:
+            grade = "A";
+            break;
+          case 80:
+          case 81:
+          case 82:
+          case 83:
+          case 84:
+          case 85:
+          case 86:
+          case 87:
+          case 88:
+          case 89:
+            grade = "B";
+            break;
+          case 70:
+          case 71:
+          case 72:
+          case 73:
+          case 74:
+          case 75:
+          case 76:
+          case 77:
+          case 78:
+          case 79:
+            grade = "C";
+          case 60:
+          case 61:
+          case 62:
+          case 63:
+          case 64:
+          case 65:
+          case 66:
+          case 67:
+          case 68:
+          case 69:
+            grade = "D";
+          case 50:
+          case 51:
+          case 52:
+          case 53:
+          case 54:
+          case 55:
+          case 56:
+          case 57:
+          case 58:
+          case 59:
+            grade = "E";
+        }
+
+        return grade;
+      }
+
+      document.getElementById("submit").onsubmit = (e) => {
+        e.preventDefault();
+        let score = document.getElementById("score").value;
+        console.log(calcGrades(parseInt(score)));
+        document.getElementById("grade").innerText = calcGrades(
+          parseInt(score)
+        );
+      };
+    </script>
+  </body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+</head>
+<body>
+    <style>
+        form {
+        width: 200px;
+          position: fixed;
+          top: 50%;
+          left: 50%;
+          transform: translate(-250%, -70%);
+          background-color: #fff;
+          padding: 20px;
+          border: 1px solid #ddd;
+          border-radius: 10px;
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+    
+        form input[type="number"] {
+          width: 60%;
+          padding: 10px;
+          margin-bottom: 20px;
+          border: 1px solid hsl(0, 0%, 80%);
+          outline-color: rgb(3, 68, 68);
+          border-radius: 5px;
+        }
+    
+        form select {
+          width: 60%;
+          padding: 10px;
+          margin-bottom: 20px;
+          border: 1px solid #ccc;
+          outline-color: rgb(11, 87, 87);
+          border-radius: 5px;
+        }
+    
+        form button {
+          background-color: #377039fb;
+          color: #fff;
+          padding: 10px 20px;
+          border: none;
+          border-radius: 30px;
+          cursor: pointer;
+        }
+    
+        form button:hover {
+          background-color: #155317c5;
+        }
+      </style>
+      <body>
+        <form id="submit">
+          <h2>CALCULATOR</h2>
+          <p>Function</p>
+          <input type="number" id="num1" required />
+          <input type="number" id="num2" required />
+          <select name="" id="operator">
+            <option value=""></option>
+            <option value="+">+</option>
+            <option value="-">-</option>
+            <option value="*">*</option>
+            <option value="/">/</option>
+          </select>
+          <button>Submit</button>
+          <p id="result"></p>
+        </form> 
+        
+        <script>
+            function calculate(num1, num2, operator) {
+                switch (operator) {
+                    case '+':
+                    return num1 + num2;
+                    case '-':
+                    return num1 - num2;
+                    case '*':
+                    return num1 * num2;
+                    case '/':
+                    return num1 / num2;
+                    default:
+                    
+                }
+            }
+
+            document.getElementById("submit").onsubmit = (e) => {
+                e.preventDefault();
+                let num1 = parseInt(document.getElementById("num1").value);
+                let num2 = parseInt(document.getElementById("num2").value);
+                let operator = document.getElementById("operator").value;
+
+                const result = calculate(num1, num2, operator);
+                document.getElementById("result").innerText = result;
+                
+            };
+        </script>
+</body>
+</html>

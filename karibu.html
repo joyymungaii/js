@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Discount</title>
+  </head>
+  <style>
+    form {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-80%, -70%);
+      background-color: #fff;
+      padding: 20px;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+
+    form input[type="number"] {
+      width: 90%;
+      padding: 10px;
+      margin-bottom: 20px;
+      border: 1px solid hsl(0, 0%, 80%);
+      outline-color: rgb(3, 68, 68);
+      border-radius: 5px;
+    }
+
+    form select {
+      width: 96%;
+      padding: 10px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      outline-color: rgb(11, 87, 87);
+      border-radius: 5px;
+    }
+
+    form button {
+      background-color: #377039fb;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+    }
+
+    form button:hover {
+      background-color: #155317c5;
+    }
+  </style>
+  <body>
+    <form id="submit">
+      <h2>KARIBU</h2>
+      <p>Total:</p>
+      <input type="number" id="purchase" required />
+      <select name="" id="promo">
+        <option value=""></option>
+        <option value="karibu">karibu</option>
+        <option value="nairobi">nairobi</option>
+      </select>
+      <button>Submit</button>
+      <p id="amt"></p>
+    </form>
+
+    <script>
+      let purchaseInput = document.getElementById("purchase");
+      let submitForm = document.getElementById("submit");
+      let amountElement = document.getElementById("amt");
+      let promoSelect = document.getElementById("promo");
+
+      submitForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+        let purchaseAmount = parseInt(purchaseInput.value);
+        let promoCode = promoSelect.value;
+
+        if (isNaN(purchaseAmount) || purchaseAmount < 0) {
+          amountElement.innerHTML = "Invalid purchase amount";
+          return;
+        }
+
+        if (isNaN(purchaseAmount) || purchaseAmount >= 0) {
+          amountElement.innerHTML = "No Discount";
+          return;
+        }
+
+        if (promoCode === "") {
+          amountElement.innerHTML = "Please select a promo code";
+          return;
+        }
+
+        let amount;
+        if (promoCode === "karibu" && purchaseAmount >= 20000) {
+          let discount = 0.25;
+          if (purchaseAmount >= 50000) {
+            discount += 0.2;
+          } else if (purchaseAmount >= 100000) {
+            discount += 0.5;
+          }
+          amount = purchaseAmount - purchaseAmount * discount;
+        } else if (promoCode === "nairobi" && purchaseAmount >= 10000) {
+          let discount = 0.15;
+          amount = purchaseAmount - purchaseAmount * discount;
+        } else {
+          amount = purchaseAmount;
+          amountElement.innerHTML = "Invalid promo code";
+          return;
+        }
+
+        amountElement.innerHTML = `Amount: ${amount.toFixed(2)}`;
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css?family=Anton');
+
+
+form {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-80%, -70%);
+  background-color: #fff;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+form input[type="number"] {
+  width: 90%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid hsl(0, 0%, 80%);
+  outline-color: rgb(3, 68, 68);
+  border-radius: 5px;
+}
+
+form select{
+  width: 96%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  outline-color: rgb(11, 87, 87);
+  border-radius: 5px;
+}
+
+form button {
+  background-color: #377039fb;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+}
+
+form button:hover {
+  background-color: #155317c5;
+}
+
+form #error-message {
+  color: rgb(204, 19, 204);
+  font-size: 18px;
+  margin-top: 10px;
+}
+/*Bouncing Ball*/
+.can {
+  background-color: #751565;
+  width: 600px;
+  height: 400px;
+  transform: translate(120%, 10%);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+/*cursor*/
+
+.cursor {
+  left: 0;
+  top: 0;
+  width: 10px;
+  height: 10px;
+  background-color: #f44336;
+  position: absolute;
+  border-radius: 5px;
+}
+
+.cursor__follower {
+  transition: transform .4s;
+  width: 6px;
+  height: 6px;
+}
+
+

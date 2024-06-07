@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Discount</title>
+  </head>
+  <style>
+    form {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-80%, -70%);
+      background-color: #fff;
+      padding: 20px;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+
+    form input[type="number"] {
+      width: 90%;
+      padding: 10px;
+      margin-bottom: 20px;
+      border: 1px solid hsl(0, 0%, 80%);
+      outline-color: rgb(3, 68, 68);
+      border-radius: 5px;
+    }
+
+    form select {
+      width: 96%;
+      padding: 10px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      outline-color: rgb(11, 87, 87);
+      border-radius: 5px;
+    }
+
+    form button {
+      background-color: #377039fb;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+    }
+
+    form button:hover {
+      background-color: #155317c5;
+    }
+  </style>
+  <body>
+    <form id="submit">
+      <h2>KARIBU</h2>
+      <p>Total:</p>
+      <input type="number" id="purchase" required />
+      <select name="" id="promo">
+        <option value=""></option>
+        <option value="karibu">karibu</option>
+        <option value="nairobi">nairobi</option>
+      </select>
+      <button>Submit</button>
+      <p id="error-message"></p>
+      <p id="amt"></p>
+    </form>
+
+    <script>
+      let purchaseInput = document.getElementById("purchase");
+      const submitForm = document.getElementById("submit");
+      const errorMessage = document.getElementById("error-message");
+      let promo = document.getElementById("promo");
+
+      submitForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+        let purchase = parseInt(purchaseInput.value);
+        let promocode = promo.value;
+
+        if ((promocode = "nairobi" && purchase > 10000 && purchase <= 20000)) {
+          errorMessage.textContent = "15% Discount";
+        } else if (
+          (promocode = "karibu" && purchase > 20000 && purchase <= 50000)
+        ) {
+          errorMessage.textContent = "25% Discount";
+        } else if (
+          (promocode = "karibu" && purchase > 50000 && purchase <= 100000)
+        ) {
+          errorMessage.textContent = "27% Discount";
+        } else if ((promocode = "karibu" && purchase > 100000)) {
+          errorMessage.textContent = "32% Discount";
+        } else {
+          errorMessage.textContent = "No discount";
+        }
+      });
+    </script>
+  </body>
+</html>
