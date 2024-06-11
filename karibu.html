@@ -79,7 +79,7 @@
           return;
         }
 
-        if (isNaN(purchaseAmount) || purchaseAmount >= 0) {
+        if (isNaN(purchaseAmount) || purchaseAmount >= 0 && purchaseAmount < 10000) {
           amountElement.innerHTML = "No Discount";
           return;
         }
