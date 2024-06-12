@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Traffic</title>
+</head>
+<style>
+  input{
+    width: 100px;
+    height: 30px;
+    border-radius: 5px;
+  }
+  button{
+    width: 70px;
+    height: 30px;
+    border-radius: 5px;
+    background-color: rgb(154, 66, 236);
+  }
+  p{
+    font-size: 18px;
+  }
+</style>
+<body>
+    <h1>Traffic Light</h1>
+    <input id="currentState" type="text" >
+    <button id="trafficLight">Nxt State</button>
+    <p id="nextState"></p>
+
+   <script>
+      document.getElementById("trafficLight").onclick = function () {
+        let currentState = document.getElementById("currentState").value;
+        let nextState = document.getElementById("nextState");
+
+        switch (currentState) {
+          case "red":
+            nextState.innerText = "green";
+            break;
+          case "green":
+            nextState.innerText = "yellow";
+            break;
+          case "yellow":
+            nextState.innerText = "red";
+            break;
+          default:
+            nextState.innerText = "Invalid state";
+        }
+      }
+    </script>
+ 
+   
+</body>
+</html>

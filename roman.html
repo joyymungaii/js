@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roman</title>
+</head>
+<style>
+    input{
+      width: 100px;
+      height: 30px;
+      border-radius: 5px;
+    }
+    button{
+      width: 130px;
+      height: 30px;
+      border-radius: 5px;
+      background-color: rgb(154, 66, 236);
+    }
+    p{
+      font-size: 18px;
+    }
+  </style>
+<body>
+    <h1>Converter</h1>
+    <input id="number" type="number" min="1" max="10">
+    <button id="convertToRoman">Convert to Roman</button>
+    <p id="roman"></p>
+
+
+    <script>
+        document.getElementById("convertToRoman").onclick =function () {
+          let number = document.getElementById("number").value;
+          let roman = document.getElementById("roman");
+  
+          switch (number) {
+            case "1":
+              roman.textContent = "I";
+              break;
+            case "2":
+              roman.textContent = "II";
+              break;
+            case "3":
+              roman.textContent = "III";
+              break;
+            case "4":
+              roman.textContent = "IV";
+              break;
+            case "5":
+              roman.textContent = "V";
+              break;
+            case "6":
+              roman.textContent = "VI";
+              break;
+            case "7":
+              roman.textContent = "VII";
+              break;
+            case "8":
+              roman.textContent = "VIII";
+              break;
+            case "9":
+              roman.textContent = "IX";
+              break;
+            case "10":
+              roman.textContent = "X";
+              break;
+            default:
+              roman.textContent = "Invalid number";
+          }
+        }
+      </script>
+    
+</body>
+</html>

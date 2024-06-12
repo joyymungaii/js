@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    input{
+      width: 100px;
+      height: 30px;
+      border-radius: 5px;
+    }
+    button{
+      width: 70px;
+      height: 30px;
+      border-radius: 5px;
+      background-color: rgb(154, 66, 236);
+    }
+    p{
+      font-size: 18px;
+    }
+  </style>
+  <body>
+    <h1>Day of the week</h1>
+    <input type="text" id="currentDay" />
+    <input type="number" id="numDays" />
+    <button onclick="calculateDayOfWeek()">Get day</button>
+    <p id="day"></p>
+
+    <script>
+      function getNewDay(Index, numDays) {
+        let daysOfWeek = [
+          "Sunday",
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday",
+        ];
+        let newIndex = (Index + numDays) % 7;
+        if (newIndex < 0) {
+          newIndex += 7;
+        }
+        return daysOfWeek[newIndex];
+      }
+      
+      function calculateDayOfWeek() {
+        let dayInput = document.getElementById("currentDay").value;
+        let numDaysInput = parseInt(document.getElementById("numDays").value);
+        let newDay;
+
+        switch (dayInput) {
+          case "Sunday":
+            newDay = getNewDay(0, numDaysInput);
+            break;
+          case "Monday":
+            newDay = getNewDay(1, numDaysInput);
+            break;
+          case "Tuesday":
+            newDay = getNewDay(2, numDaysInput);
+            break;
+          case "Wednesday":
+            newDay = getNewDay(3, numDaysInput);
+            break;
+          case "Thursday":
+            newDay = getNewDay(4, numDaysInput);
+            break;
+          case "Friday":
+            newDay = getNewDay(5, numDaysInput);
+            break;
+          case "Saturday":
+            newDay = getNewDay(6, numDaysInput);
+            break;
+          default:
+            alert("Invalid day of the week");
+            return;
+        }
+
+        let result = document.getElementById("day");
+        result.innerText = `The day of the week after ${numDaysInput} days is ${newDay}.`;
+      }
+    </script>
+  </body>
+</html>
